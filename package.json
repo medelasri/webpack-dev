@@ -1,7 +1,7 @@
 {
   "name": "webpack-dev",
   "version": "1.0.0",
-  "description": "Webpack Development and Production Environment.",
+  "description": "Webpack 2 template using es2015, vuejs, hot reload, css extraction, source map and more.",
   "main": "",
   "scripts": {
     "build": "rimraf dist && NODE_ENV=production webpack --config build/webpack.config.js",
