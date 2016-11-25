@@ -1,5 +1,5 @@
 # webpack-dev
-Technologies: vuejs, hot reload, css extraction, source map and more...
+Webpack 2 template using es2015, vuejs, hot reload, css extraction, source map and more...
 
 ## Installation
 * Clone this repository
