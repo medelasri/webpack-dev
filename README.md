@@ -2,8 +2,9 @@
 Webpack 2 template using es2015, vuejs, hot reload, css extraction, source map and more...
 
 ## Installation
-* Clone this repository
-* Run ```npm install```
+* [nodejs](https://nodejs.org/en/)
+* Clone this repository `git clone https://github.com/medelasri/webpack-dev.git`
+* Run `npm install`
 * Start your development
 
 ## Contact
