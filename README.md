@@ -1,4 +1,11 @@
-# Vagrant-Dev
-Fastest web development environment:<br />
-Vagrant Box: hashicorp/precise32<br />
-(PHP7, NGINX and MYSQL-SERVER)
+# webpack-dev
+Technologies: vuejs, hot reload, css extraction, source map and more...
+
+## Installation
+* Clone this repository
+* Run ```npm install```
+* Start your development
+
+## Contact
+Mohammed EL ASRI<br /> 
+elasri.md@gmail.com
