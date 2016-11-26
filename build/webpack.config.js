@@ -12,7 +12,7 @@ var entry = PRODUCTION
 	:	[
 			config.entry,
 			'webpack/hot/dev-server',
-			'webpack-dev-server/client?http://' + config.hostname +':' + config.client_port
+			'webpack-dev-server/client?http://' + config.hostname + ':' + config.client_port
 		];
 
 var plugins = PRODUCTION
@@ -34,7 +34,7 @@ plugins.push(
 		PRODUCTION: JSON.stringify(PRODUCTION)
 	}),
 	new webpack.LoaderOptionsPlugin({
-		minimize: PRODUCTION ? true : false,
+		minimize: true,
   		options: {
     		postcss: [
 				require('autoprefixer')({ 
@@ -64,26 +64,26 @@ let webpack_config = {
 			exclude: /node_modules/
 		}, {
 			test: /\.vue$/,
-        	loader: 'vue-loader',
-        	options: {
-	          	loaders: {
-	            	sass: sassLoader
+        	        loader: 'vue-loader',
+        	        options: {
+				loaders: {
+					sass: sassLoader
 				}
-	        }
+	       		}
 		}, {
 			test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
 			loader: 'url-loader',
 			query: {
-          		limit: 10000,
-          		name: '../assets/img/[name].[hash:7].[ext]'
-        	}
+				limit: 10000,
+				name: '../assets/img/[name].[hash:7].[ext]'
+			}
 		}, {
 			test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
-	        loader: 'url-loader',
-	        query: {
-	          limit: 10000,
-	          name: '../assets/fonts/[name].[hash:7].[ext]'
-	        }
+			loader: 'url-loader',
+			query: {
+				limit: 10000,
+				name: '../assets/fonts/[name].[hash:7].[ext]'
+			}
 		}]
 	},
 	resolve: {
