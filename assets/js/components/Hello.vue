@@ -6,13 +6,13 @@
 	export default {
 		data() {
 			return {
-				hello: 'Hello Vuejs.'
+				hello: 'Hello Webpack Dev.'
 			}
 		}
 	}
 </script>
 
 <style lang="sass">
-	$color: green;
-	p { color: $color }
+	$color: red;
+	p { color: $color; text-align: center }
 </style>
