@@ -7,7 +7,6 @@ Webpack 2 template using es2015, vuejs, hot reload, css extraction, source map a
 * Run `npm install`
 * Run `npm run dev` for development
 * Run `npm run build` for production
-* Start your development
 
 ## Contact
 Mohammed EL ASRI<br /> 
