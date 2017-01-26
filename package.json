@@ -1,7 +1,7 @@
 {
   "name": "webpack-dev",
   "version": "1.0.0",
-  "description": "Webpack CLI",
+  "description": "Webpack 2 Tempalte",
   "author": "Mohammed EL ASRI",
   "license": "MIT",
   "private": true,
