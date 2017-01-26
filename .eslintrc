@@ -5,6 +5,7 @@
         "sourceType": "module"
     },
     "extends": "standard",
+    "plugins": ["html"],
     "rules": {
         "indent": ["error", 4],
         "arrow-parens": 0,
