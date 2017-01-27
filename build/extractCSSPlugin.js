@@ -23,7 +23,6 @@ ExtractCSSPlugin.prototype.renderExtractedChunk = function(chunk) {
 
     // PostCSS
     out = postcss([
-        require('css-mqpacker'),
         require('postcss-merge-rules'),
         require('csswring')
     ]).process(out)
