@@ -1,6 +1,6 @@
 {
   "name": "webpack-dev",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Webpack 2 Template",
   "author": "Mohammed EL ASRI",
   "license": "MIT",
@@ -23,7 +23,9 @@
     "eslint-plugin-html": "^2.0.0",
     "eslint-plugin-promise": "^3.4.0",
     "eslint-plugin-standard": "^2.0.1",
+    "extract-text-webpack-plugin": "^2.0.0-beta.4",
     "html-loader": "^0.4.4",
+    "html-webpack-plugin": "^2.26.0",
     "node-sass": "^4.3.0",
     "postcss-loader": "^1.2.2",
     "progress-bar-webpack-plugin": "^1.9.1",
