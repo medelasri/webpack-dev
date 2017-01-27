@@ -1,18 +1,10 @@
-<template>
-	<p>{{ hello }}</p>
-</template>
+<template src="./hello.html"></template>
+<style src="./hello.scss" lang="sass"></style>
 
 <script>
 	export default {
 		data() {
-			return {
-				hello: 'Hello Webpack Dev.'
-			}
+			return { hello: 'Hello To Webpack-Dev!' }
 		}
 	}
 </script>
-
-<style lang="sass">
-	$color: red;
-	p { color: $color; text-align: center }
-</style>
