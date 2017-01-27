@@ -1,28 +1,21 @@
+'use strict'
 const webpack = require('webpack')
 const config = require('./config')
 const path = require('path')
+const ExtractCSSPlugin = require('./extractCSSPlugin')
 
-// Sass Loader Config
-var sassLoaderConfig = {
-    includePaths: [path.resolve(__dirname, '../src')]
-};
-
-// postCss Loader Config
-var postcssConfig = [];
-if (config.css.autoprefixer) {
-    postcssConfig.push(
+const sassLoader = { includePaths: [path.resolve(__dirname, '../src') ]}
+const postcss = {
+    plugins: [
         require('autoprefixer')({
-            browsers: ['last 2 versions']
+            browsers: config.browsers
         })
-    )
+    ]
 }
+const eslint = { formatter: require('eslint-friendly-formatter') }
 
-// Eslint Config
-var eslintConfig = { formatter: require('eslint-friendly-formatter') }
-
-// Webpack Config
 let webpack_base = {
-	devtool: config.debug ? 'eval-cheap-module-source-map' : false,
+	devtool: config.debug ? 'cheap-module-eval-source-map' : false,
 	entry: config.entry,
     resolve: {
         modules: ["node_modules"],
@@ -47,12 +40,19 @@ let webpack_base = {
 		}, {
 			test: /\.vue$/,
         	loader: 'vue-loader',
-        	options: {
-	          	loaders: {
-	            	scss: ['style-loader!css-loader?importLoaders=2?sourceMap!postcss-loader!sass-loader?sourceMap']
-				}
-	        }
 		}, {
+            test: /\.scss$/,
+            loader: ExtractCSSPlugin.extract({
+                fallbackLoader: "style-loader",
+                loader: ['css-loader', 'postcss-loader', 'sass-loader']
+            })
+        }, {
+            test: /\.css$/,
+            loader: ExtractCSSPlugin.extract({
+                fallbackLoader: "style-loader",
+                loader: ['css-loader', 'postcss-loader']
+            })
+        }, {
             test: /\.(png|jpe?g|gif|svg|woff2?|eot|ttf|otf|wav)(\?.*)?$/,
             loader: 'url-loader',
             query: {
@@ -69,11 +69,25 @@ let webpack_base = {
         new webpack.LoaderOptionsPlugin({
             minimize: config.debug ? false : true,
             options: {
-                sassLoader: sassLoaderConfig,
-                postcss: postcssConfig,
-                eslint: eslintConfig,
+                sassLoader: sassLoader,
+                postcss: postcss,
+                eslint: eslint,
+                vue: {
+                    loaders: {
+                        scss: ExtractCSSPlugin.extract({
+                            fallbackLoader: "vue-style-loader",
+                            loader: ['css-loader', 'postcss-loader', 'sass-loader']
+                        }),
+                        js: 'babel-loader'
+                    },
+                    postcss: postcss
+                },
                 context: '/'
             }
+        }),
+        new ExtractCSSPlugin({
+            filename: '[name].[contenthash:8].css',
+            disable: config.debug
         })
     ],
     devServer: {
@@ -82,8 +96,8 @@ let webpack_base = {
 	output: {
 		path: path.join(__dirname, '../' + config.assets_path),
 		publicPath: config.assets_url,
-		filename: config.filename + '.[chunkhash].min.js'
+		filename: config.debug ? '[name].js' : '[name].[chunkhash:8].js'
 	}
-};
+}
 
 module.exports = webpack_base
