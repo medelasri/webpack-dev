@@ -1,15 +1,7 @@
-require('./bootstrap');
-import Hello from './components/Hello';
+var Vue = require('vue')
+import Hello from './components/Hello'
 
-const app = new Vue({
+new Vue({
 	el: "#app",
-	components: {
-		hello: Hello
-	}
-});
-
-if(DEVELOPMENT) {
-	if(module.hot) {
-		module.hot.accept();
-	}
-}
+	components: { Hello }
+})
