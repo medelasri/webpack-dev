@@ -6,7 +6,6 @@ const config = require('./config')
 
 webpack_base.output.publicPath = 'http://' + config.client_hostname + ':' + config.client_port + '/'
 webpack_base.output.path = '/tmp/'
-webpack_base.output.filename = config.filename + '.js'
 for (var name in webpack_base.entry) {
     webpack_base.entry[name] = [path.resolve(__dirname, './server-client'), ...webpack_base.entry[name]]
 }
