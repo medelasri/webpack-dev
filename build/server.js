@@ -10,6 +10,7 @@ var server = new WebpackDevServer(compiler, {
 	publicPath: webpack_dev.output.publicPath,
 	noInfo: false,
 	quiet: false,
+	// Important for Vagrant
 	watchOptions: {
 		aggregateTimeout: 300,
 		poll: 50,
